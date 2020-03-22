@@ -4,7 +4,13 @@ function eval() {
 }
 
 function expressionCalculator(expr) {
-    // write your solution here
+    if (expr.replace(/\s/g, '').includes('/0')) {
+        throw new Error('TypeError: Division by zero.');
+    }
+
+    if (!(expr.split("(").length == expr.split(")").length) ) {
+        throw new Error("ExpressionError: Brackets must be paired");
+    }
 }
 
 module.exports = {
